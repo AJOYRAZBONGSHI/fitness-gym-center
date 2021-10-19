@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import authenticationInitialize from "../../FireBase/FireBase.init";
@@ -14,6 +14,22 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+
+
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.from || '/home';
+
+  const handleGoogleLogIn=()=>{
+    signInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        history.push(redirectUrl);
+      })
+      .catch((error) => {})
+      .finally(() => setIsLoading(false));
+  }
 
   const handleLogIn = (e) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -37,27 +53,27 @@ const Login = () => {
   return (
     <div className="w-50 mx-auto h-auto">
       <h1>Please Login</h1>
-      <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="formGroupExampleInput" className="form-label">
           Email
         </label>
         <input
           onBlur={handleEmailChange}
           type="email"
-          class="form-control"
+          className="form-control"
           id="formGroupExampleInput"
           placeholder="enter your email"
           required="required"
         />
       </div>
-      <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="formGroupExampleInput2" className="form-label">
           Password
         </label>
         <input
           onBlur={handlePasswordChange}
           type="password"
-          class="form-control"
+          className="form-control"
           id="formGroupExampleInput2"
           placeholder="enter your password"
           required="required"
@@ -72,7 +88,7 @@ const Login = () => {
         Login
       </button>
       <button
-        onClick={signInWithGoogle}
+        onClick={handleGoogleLogIn}
         className="btn btn-primary d-block my-4"
       >
         Login with Google

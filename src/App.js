@@ -4,12 +4,12 @@ import Home from "./components/HomePage/Home/Home";
 import Header from "./components/Shared/Header/Header";
 import Footer from "./components/Shared/Footer/Footer";
 import NotFound from "./components/Shared/NotFound/NotFound";
-import ServiceDetails from "./components/ServicesPage/Service/ServiceDetails";
-import Services from "./components/HomePage/Services/Services";
-import Contract from "./components/Contracr/Contract";
+import ServiceDetails from "./components/HomePage/Service-details/ServiceDetails";
+import Contract from "./components/Contract/Contract";
 import Login from "./components/Login/Login";
 import AuthProvider from "./components/context/AuthProvider";
 import Register from "./components/Login/Register/Register";
+import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/service/:serviceId">
+            <PrivateRoute exact path="/service/:serviceId">
               <ServiceDetails></ServiceDetails>
-            </Route>
+            </PrivateRoute>
             <Route path="/contract">
               <Contract></Contract>
             </Route>
