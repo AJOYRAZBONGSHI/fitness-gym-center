@@ -35,6 +35,7 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
+        history.push(redirectUrl);
         setError("");
       })
       .catch((error) => {

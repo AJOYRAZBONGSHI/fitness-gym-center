@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory,useLocation } from "react-router-dom";
 import authenticationInitialize from "../../../FireBase/FireBase.init";
 import useAuth from "../../hooks/useAuth";
 
@@ -10,6 +10,10 @@ const Register = () => {
   const { signInWithGoogle } = useAuth();
 
   const auth = getAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.from || "/home";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +28,7 @@ const Register = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
+        history.push(redirectUrl);
         setError("");
       })
       .catch((error) => {
