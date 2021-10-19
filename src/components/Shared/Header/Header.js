@@ -1,59 +1,68 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-import logo from "../../../images/logo.png";
 
 const Header = () => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
-        <Container className="">
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src={logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top me-3"
-            />{" "}
-            <span className=" fw-bold fs-4">Fitness Gym Center</span>
-          </Navbar.Brand>
-          <Nav className="ms-auto">
-            <NavLink
-              className="text-decoration-none text-white mx-3 fs-5"
-              to="home"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              className="text-decoration-none text-white mx-3 fs-5"
-              to="services"
-            >
-              Service
-            </NavLink>
-            <NavLink
-              className="text-decoration-none text-white mx-3 fs-5"
-              to="about"
-            >
-              About us
-            </NavLink>
-            <NavLink
-              className="text-decoration-none text-white mx-3 fs-5"
-              to="contract"
-            >
-              Contract us
-            </NavLink>
-            <NavLink
-              className="text-decoration-none text-white mx-3 fs-5"
-              to="login"
-            >
-              Login
-            </NavLink>
-          </Nav>
-        </Container>
-      </Navbar>
-      <br />
+      <nav className="navbar navbar-expand-lg navbar-light bg-dark mb-5">
+        <div className="container-fluid">
+          <img
+            className="ms-xl-5"
+            src="https://i.ibb.co/DfXRRy3/pngwing-com.png"
+            alt=""
+          />
+          <span className="ms-xl-3 fs-4 fw-bold text-white">
+            Fitness Gym Center
+          </span>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <Nav className="ms-auto">
+              <NavLink
+                className="text-decoration-none text-white fw-bold mx-3 fs-5"
+                to="/home"
+              >
+                Home
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white fw-bold mx-3 fs-5"
+                to="/services"
+              >
+                Services
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white fw-bold mx-3 fs-5"
+                to="/about"
+              >
+                About us
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white fw-bold mx-3 fs-5"
+                to="/contract"
+              >
+                Contract us
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white fw-bold mx-3 fs-5"
+                to="/login"
+              >
+                Login
+              </NavLink>
+            </Nav>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };
