@@ -39,7 +39,7 @@ const Header = () => {
               </NavLink>
               <NavLink
                 className="text-decoration-none text-white fw-bold mx-3 fs-5"
-                to="/services"
+                to="/servicesbox"
               >
                 Services
               </NavLink>

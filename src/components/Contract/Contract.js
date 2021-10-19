@@ -73,7 +73,7 @@ const Contract = () => {
           </div>
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary">
+          <button className="btn btn-primary">
             Sign in
           </button>
         </div>
