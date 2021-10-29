@@ -8,7 +8,6 @@ import ServiceDetails from "./components/HomePage/Service-details/ServiceDetails
 import Contract from "./components/Contract/Contract";
 import Login from "./components/Login/Login";
 import AuthProvider from "./components/context/AuthProvider";
-import Register from "./components/Login/Register/Register";
 import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
 import About from "./components/About/About";
 import ServicesBox from "./components/ServicesPage/ServicesBox/ServicesBox";
@@ -34,9 +33,6 @@ function App() {
             </Route>
             <Route path="/login">
               <Login></Login>
-            </Route>
-            <Route path="/register">
-              <Register></Register>
             </Route>
             <Route path="/about">
               <About></About>
